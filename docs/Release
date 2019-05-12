@@ -1,11 +1,11 @@
-Origin: 疯子
-Label: 疯子
+Origin: 1壹筒天下 🇨🇳
+Label: 1壹筒天下 🇨🇳
 Suite: stable
-Version: 1.0
+Version: ©2019
 Codename: ios
 Architectures: iphoneos-arm
 Components: main
-Description: .
+Description: 壹筒天下🇨🇳
 
 SHA256:
- 2864afd66e4405256886aecc7e3eb137df27f2f0b40aeb26720b6d63977b4ef9 617 Packages.bz2
+ 8a99c6e3524624492d8413a0aa801f8db568e6072c49c88460bce17102a5c7ba 662 Packages.bz2

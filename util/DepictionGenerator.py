@@ -10,7 +10,7 @@ from util.PackageLister import PackageLister
 
 class DepictionGenerator:
     """
-    DepictionGenerator deals with the rendering and generating of depictions.
+   描述生成器处理描述的呈现和生成.
 
     """
 
@@ -37,6 +37,7 @@ class DepictionGenerator:
             replacements['tweak_bundle_id'] = tweak_data['bundle_id']
             replacements['works_min'] = tweak_data['works_min']
             replacements['works_max'] = tweak_data['works_max']
+            replacements['size'] = tweak_data['size']
             replacements['tweak_carousel'] = DepictionGenerator.ScreenshotCarousel(self, tweak_data)
             replacements['tweak_changelog'] = DepictionGenerator.RenderChangelogHTML(self, tweak_data)
             replacements['tweak_tagline'] = tweak_data['tagline']
@@ -119,8 +120,13 @@ class DepictionGenerator:
             "tintColor": tint,
             "tabs": [
                 {
-                    "tabname": "Details",
+                    "tabname": "插件描述",
                     "views": [
+                          {
+                          "markdown":"\n-  "  + md_txt,
+                          "useSpacing": "true",
+                          "class": "DepictionMarkdownView"
+                          },
                         {
                             "class": screenshot_view_carousel,
                             "screenshots": screenshot_obj,
@@ -128,43 +134,55 @@ class DepictionGenerator:
                             "itemSize": screenshot_size
                         },
                         {
-                            "markdown": md_txt,
-                            "useSpacing": "true",
-                            "class": "DepictionMarkdownView"
-                        },
-                        {
                             "class": "DepictionSpacerView"
                         },
                         {
+                              "class": "DepictionHeaderView",
+                              "title": "更新日期",
+                              },
+                        {
+                              "class": "DepictionHeaderView",
+                              "title": "更新日志"
+                        },
+                        {
+                              "class": "DepictionMarkdownView",
+                              "markdown": "没有更改日志.",
+                        },
+                        {
                             "class": "DepictionHeaderView",
-                            "title": "Information",
+                            "title": "版本描述",
                         },
                         {
                             "class": "DepictionTableTextView",
-                            "title": "Developer",
+                            "title": "开发人员",
                             "text": tweak_data['developer']['name']
                         },
                         {
                             "class": "DepictionTableTextView",
-                            "title": "Version",
+                            "title": "当前版本",
                             "text": tweak_data['version']
                         },
                         {
                             "class": "DepictionTableTextView",
-                            "title": "Compatibility",
-                            "text": "iOS " + tweak_data['works_min'] + " to " + tweak_data['works_max']
+                            "title": "支持系统",
+                            "text": "iOS " + tweak_data['works_min'] + " 至 " + tweak_data['works_max']
+                        },
+                        {
+                        "class": "DepictionTableTextView",
+                        "title": "支持A12",
+                        "text": tweak_data['Support']
                         },
                         {
                             "class": "DepictionTableTextView",
-                            "title": "Section",
-                            "text": tweak_data['section']
+                            "title": "插件大小",
+                            "text": tweak_data['size'] + " KB "
                         },
                         {
                             "class": "DepictionSpacerView"
                         },
                         {
                             "class": "DepictionTableButtonView",
-                            "title": "Contact Support",
+                            "title": "获取我的",
                             "action": "depiction-https://" + repo_settings['cname'] + subfolder +
                                       "/depiction/native/help/" + tweak_data['bundle_id'] + ".json",
                             "openExternal": "true",
@@ -181,7 +199,7 @@ class DepictionGenerator:
                     "class": "DepictionStackView"
                 },
                 {
-                    "tabname": "Changelog",
+                    "tabname": "关于我们",
                     "views": changelog,
                     "class": "DepictionStackView"
                 }
@@ -235,15 +253,7 @@ class DepictionGenerator:
             return changelog
         except Exception:
             return [
-                {
-                    "class": "DepictionHeaderView",
-                    "title": "Changelog"
-                },
-                {
-                    "class": "DepictionMarkdownView",
-                    "markdown": "This package has no changelog.",
-                },
-                {
+                {   
                     "class": "DepictionLabelView",
                     "text": DepictionGenerator.RenderFooter(self),
                     "textColor": "#999999",
@@ -276,7 +286,7 @@ class DepictionGenerator:
                 element += DepictionGenerator.ChangelogEntry(self, version['version'], version['changes'])
             return element
         except Exception:
-            return "This package has no changelog."
+            return "没有更改日志"
 
     def RenderIndexHTML(self):
         """
@@ -300,17 +310,17 @@ class DepictionGenerator:
         try:
             footer = pystache.render(repo_settings['footer'], data)
         except Exception:
-            footer = pystache.render("Silica {{silica_version}} – Updated {{silica_compile_date}}", data)
+            footer = pystache.render("他是个疯子 {{silica_version}} – 更新日期 {{silica_compile_date}}", data)
         return footer
 
     def RenderDataBasic(self):
         """
-        Gets the value of basic repo data to pass to Pystache.
+        获取要传递给pystache的基本repo数据的值.
         """
         repo_settings = PackageLister.GetRepoSettings(self)
         with open(self.root + "Styles/settings.json", "r") as content_file:
             data = json.load(content_file)
-            date = datetime.datetime.now().strftime("%Y-%m-%d")
+            date = datetime.datetime.now().strftime("%Y年%m月%d日%H时%M分")
             subfolder = PackageLister.FullPathCname(self, repo_settings)
             return {
                 "silica_version": self.version,

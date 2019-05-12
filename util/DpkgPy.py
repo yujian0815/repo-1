@@ -4,20 +4,19 @@ import tarfile
 
 class DpkgPy:
     """
-    DpkgPy is a Python library designed to create and manipulate Debian packages in pure Python.
-    It has no dependencies besides other Python libraries.
-
-    (c) 2019 Shuga Holdings. All rights reserved!
+        dpkgpy是一个python库，设计用于在纯python中创建和操作debian包。
+        除了其他Python库之外，它没有依赖项。
+        （c）2019 Shuga控股公司。版权所有！
     """
     def __init__(self):
         super(DpkgPy, self).__init__()
 
     def extract(self, input_path, output_path):
         """
-        Extracts data from a DEB file.
-        :param input_path: A String of the file path of the DEB to extract.
-        :param output_path: A String of the file path to put the extracted DEB. Folder must already exist.
-        :return: A Boolean on whether the extraction succeeded or failed.
+            从DEB文件中提取数据。
+            ：param input_path：要提取的DEB文件路径的字符串。
+            ：param output_path：放置提取的DEB的文件路径字符串。文件夹必须已经存在。
+            ：返回：有关提取是否成功或失败的布尔值。
         """
         try:
             root_ar = arpy.Archive(input_path)
@@ -41,10 +40,10 @@ class DpkgPy:
 
     def control_extract(self, input_path, output_path):
         """
-        Extracts only the Control file(s) from a DEB
-        :param input_path: A String of the file path of the DEB to extract.
-        :param output_path: A String of the file path to put the extracted DEB. Folder must already exist.
-        :return: A Boolean on whether the extraction succeeded or failed.
+            仅从DEB中提取控制文件
+            ：param input_path：要提取的DEB文件路径的字符串。
+            ：param output_path：放置提取的DEB的文件路径字符串。文件夹必须已经存在。
+            ：返回：有关提取是否成功或失败的布尔值。
         """
         try:
             root_ar = arpy.Archive(input_path)

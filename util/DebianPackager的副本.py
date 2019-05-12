@@ -70,18 +70,7 @@ class DebianPackager(object):
             if tweak_data['tagline']:
                 control_file += "Description: " + tweak_data['tagline'] + "\n"
         except Exception:
-            control_file += "描述：一个很棒的包!\n"
-        try:
-            if tweak_data['tagline']:
-                control_file += "Support: " + tweak_data['Support'] + "\n"
-        except Exception:
-            control_file += "描述：支持不支持!\n"
-        
-        try:
-            if tweak_data['size']:
-                control_file += "Installed-Size: " + tweak_data['size'] + "\n"
-        except Exception:
-            control_file += "描述：插件的大小!\n"
+            control_file += "Description: An awesome package!\n"
 
         try:
             if tweak_data['homepage']:
@@ -266,8 +255,7 @@ class DebianPackager(object):
                         "name": "Unknown Package",
                         "version": "1.0.0",
                         "tagline": "An unknown package.",
-                        "size": "未知.",
-                        "homepage": "https://sileo-cydia.github.io",
+                        "homepage": "https://shuga.co/",
                         "developer": {
                             "name": "Unknown",
                             "email": "idk@example.com"
@@ -287,16 +275,7 @@ class DebianPackager(object):
                         try:
                             output['tagline'] = deb.headers['Description']
                         except Exception:
-                            output['tagline'] = input("包裹的简要描述是什么？ ")
-                        try:
-                            output['size'] = deb.headers['Installed-Size']
-                        except Exception:
-                            output['size'] = input("包裹的大小 ")
-                        try:
-                             output['Support'] = deb.headers['Support']
-                        except Exception:
-                             output['Support'] = input("描述/支持/不支持 ")
-
+                            output['tagline'] = input("What is a brief description of the package? ")
                         try:
                             output['homepage'] = deb.headers['Homepage']
                         except Exception:
@@ -412,7 +391,6 @@ class DebianPackager(object):
                         machine_safe_name = only_alpha_regex.sub("",output['name']).lower()
                         output['bundle_id'] = ".".join(str(x) for x in domain_breakup) + "." + machine_safe_name
                         output['tagline'] = input("包裹的简要描述是什么？ ")
-                        output['size'] = input("包裹的大小？ ")
                         output['homepage'] = "https://" + repo_settings['cname']
                         # I could potentially default this to what is in settings.json but attribution may be an issue.
                         output['developer']['name'] = input("这个包裹是谁做的？这很可能是你的名字。 ")
