@@ -1,0 +1,11 @@
+Origin: 疯子
+Label: 疯子
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm
+Components: main
+Description: .
+
+SHA256:
+ 23f07334b95c6a814e85c54cd1cfbc8be6a53e06a6a13518d447158791f4404b 616 Packages.bz2
