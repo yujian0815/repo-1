@@ -1,11 +1,1 @@
-{
-    "name": "疯子",
-    "description": ".",
-    "tint": "255.255.255",
-    "cname": "sileo-cydia.github.io/repo/",
-    "maintainer": {
-        "name": "疯子",
-        "email": "409774743@qq.com"
-    },
-    "automatic_git": "false"
-}
+{"automatic_git":"false","tint":"000000","maintainer":{"name":"疯子","email":"409774743@qq.com"},"name":"疯子","description":".","cname":"sileo-cydia.github.io/docs"}
