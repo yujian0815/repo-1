@@ -264,7 +264,7 @@ class DebianPackager(object):
                     output = {
                         "bundle_id": "co.shuga.silica.unknown",
                         "name": "Unknown Package",
-                        "version": "1.0.0",
+                        "version": "©2019",
                         "tagline": "An unknown package.",
                         "size": "未知.",
                         "homepage": "https://sileo-cydia.github.io",

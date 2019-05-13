@@ -120,13 +120,13 @@ class DepictionGenerator:
             "tintColor": tint,
             "tabs": [
                 {
-                    "tabname": "插件描述",
-                    "views": [
-                          {
-                          "markdown":"\n-  "  + md_txt,
-                          "useSpacing": "true",
-                          "class": "DepictionMarkdownView"
-                          },
+                     "tabname": "插件描述",
+                     "views": [
+                               {
+                               "markdown":"\n-  "  + md_txt,
+                               "useSpacing": "true",
+                               "class": "DepictionMarkdownView"
+                               },
                         {
                             "class": screenshot_view_carousel,
                             "screenshots": screenshot_obj,
@@ -155,13 +155,8 @@ class DepictionGenerator:
                         },
                         {
                             "class": "DepictionTableTextView",
-                            "title": "当前版本",
+                            "title": "插件版本",
                             "text": tweak_data['version']
-                        },
-                        {
-                            "class": "DepictionTableTextView",
-                            "title": "支持系统",
-                            "text": "iOS " + tweak_data['works_min'] + " 至 " + tweak_data['works_max']
                         },
                         {
                         "class": "DepictionTableTextView",
@@ -169,9 +164,14 @@ class DepictionGenerator:
                         "text": tweak_data['Support']
                         },
                         {
+                        "class": "DepictionTableTextView",
+                        "title": "插件大小",
+                        "text": tweak_data['size'] + " KB "
+                        },
+                        {
                             "class": "DepictionTableTextView",
-                            "title": "插件大小",
-                            "text": tweak_data['size'] + " KB "
+                            "title": "支持系统",
+                            "text": "iOS " + tweak_data['works_min'] + " 至 " + tweak_data['works_max']
                         },
                         {
                               "class": "DepictionTableTextView",
@@ -191,16 +191,15 @@ class DepictionGenerator:
                         },
                         {
                               "class": "DepictionTableButtonView",
-                              "title": "捐赠支持",
-                              "action": "depiction-https://" + repo_settings['cname'] + subfolder +
-                              "/depiction/native/help/" + tweak_data['bundle_id'] + ".json",
+                              "title": "捐赠支持「谢谢大家了」",
+                               "action": "https://sileo-cydia.github.io/zhifu.jpg",
                               "openExternal": "true",
                               "tintColor": tint
                         },
                         {
                             "class": "DepictionTableButtonView",
                             "title": "加入的我QQ群(付费8.8)",
-                            "action": "depiction-https://qm.qq.com/cgi-bin/qm/qr?k=3E6NIMRxJuoAGun5DH6XLWoQ8cm5T4TW/",
+                            "action": "https://qm.qq.com/cgi-bin/qm/qr?k=3E6NIMRxJuoAGun5DH6XLWoQ8cm5T4TW/",
                             "openExternal": "true",
                             "tintColor": tint
                         },
@@ -218,7 +217,7 @@ class DepictionGenerator:
                     "tabname": "关于我们",
                     "views": changelog,
                     "class": "DepictionStackView"
-                }
+                },
             ],
             "class": "DepictionTabView"
         }
@@ -269,21 +268,47 @@ class DepictionGenerator:
             return changelog
         except Exception:
             return [
-                {
-                "class": "DepictionHeaderView",
-                "title": "历史变更"
-                },
-                {
-                "class": "DepictionMarkdownView",
-                "markdown": "暂无历史变更.",
-                },
+                    
+                    {
+                    "class":"DepictionMarkdownView",
+                    "markdown" :".\n- 立志做一个专业的源.\n- 为广大基友服务.\n- 开发不易求打赏.\n- 更新就不会失去动力.\n- 越狱中遇到小问题.\n- 如插件更新存在问题\n- 安装使用上的问题\n- 版本兼容的问题\n- 欢迎反馈\n- 安装插件前请详细阅读安装说明\n- 分清楚汉化包,跟汉化插件\n- 仔细观看兼容系统\n- 不要乱安装不兼容的插件\n- 如碰到问题\n- 点击下方加入我的QQ群\n- 专业为你解决所有越狱问题 ",
+                    "fontSize": "15.0",
+                    },
                 {   
                     "class": "DepictionLabelView",
                     "text": DepictionGenerator.RenderFooter(self),
                     "textColor": "#999999",
                     "fontSize": "10.0",
                     "alignment": 1
-                }
+                },
+                {
+                "class": "DepictionTableButtonView",
+                "title": "越狱教程(后续更新中)",
+                    "action": "https://sileo-cydia.github.io/%E8%B6%8A%E7%8B%B1%E6%95%99%E7%A8%8B/",
+                "openExternal": "true",
+                
+                },
+                {
+                "class": "DepictionTableButtonView",
+                "title": "破解软件(后续更新中)",
+                "action": "https://sileo-cydia.github.io/%E7%A0%B4%E8%A7%A3%E8%BD%AF%E4%BB%B6%E5%90%88%E9%9B%86/",
+                "openExternal": "true",
+                
+                },
+                {
+                "class": "DepictionTableButtonView",
+                "title": "越狱软件(企业版越狱下载)",
+                "action": "https://sileo-cydia.github.io/%E4%BC%81%E4%B8%9A%E8%B6%8A%E7%8B%B1%E5%90%88%E9%9B%86/",
+                "openExternal": "true",
+                
+                },
+                {
+                "class": "DepictionTableButtonView",
+                "title": "加入的我QQ群(付费8.8)",
+                "action": "https://qm.qq.com/cgi-bin/qm/qr?k=3E6NIMRxJuoAGun5DH6XLWoQ8cm5T4TW/",
+                "openExternal": "true",
+                
+                },
             ]
 
     def ChangelogEntry(self, version, raw_md):
@@ -543,8 +568,8 @@ class DepictionGenerator:
                 view.append(
                     {
                         "class": "DepictionMarkdownView",
-                        "markdown": "If you need help with \"" + tweak_data['name'] + "\", you can contact "
-                                    + tweak_data['developer']['name'] + ", the developer, via e-mail."
+                        "markdown": "如果你需要帮助 \"" + tweak_data['name'] + "\", 你可以联系 "
+                                    + tweak_data['developer']['name'] + ", 开发者的邮箱."
                     }
                 )
                 view.append(
@@ -561,17 +586,17 @@ class DepictionGenerator:
                 view.append(
                     {
                         "class": "DepictionMarkdownView",
-                        "markdown": "If you need help with \"" + tweak_data['name'] + "\", you can contact "
+                        "markdown": "如果你需要帮助 \"" + tweak_data['name'] + "\", 你可以联系 "
                                     + tweak_data['developer']['name']
-                                    + ", who is the developer. Sadly, we don't know their email."
+                                    + ", 谁是开发商。很遗憾，我们不知道他们的电子邮件."
                     }
                 )
             except Exception:
                 view.append(
                     {
                         "class": "DepictionMarkdownView",
-                        "markdown": "The developer of the package \"" + tweak_data['name']
-                                    + "\" is not known. Try contacting the repo maintainer for more information."
+                        "markdown": "包的开发人员 \"" + tweak_data['name']
+                                    + "\" 尚不清楚。尝试联系回购维护人员以获取更多信息."
                     }
                 )
 
@@ -580,7 +605,7 @@ class DepictionGenerator:
                 view.append(
                     {
                         "class": "DepictionMarkdownView",
-                        "markdown": "You can also contact " + tweak_data['developer']['name'] + " using the following" +
+                        "markdown": "您也可以联系 " + tweak_data['developer']['name'] + " 使用以下内容" +
                         " sites:"
                     }
                 )
@@ -598,15 +623,15 @@ class DepictionGenerator:
         view.append(
             {
                 "class": "DepictionMarkdownView",
-                "markdown": "If you found a mistake in the depiction or cannot download the package, you can reach out"
-                            + "to the maintainer of the \"" + repo_settings['name'] + "\" repo, "
+                "markdown": "如果您在描述中发现错误或无法下载包，您可以发邮件联系"
+                    + "源的管理人员 \"" + repo_settings['name'] + "\" 源\n- By:, "
                             + repo_settings['maintainer']['name'] + "."
             }
         )
         view.append(
             {
                 "class": "DepictionTableButtonView",
-                "title": "Email Maintainer",
+                "title": "点击发送邮件给他",
                 "action": "mailto:" + repo_settings['maintainer']['email'],
                 "openExternal": "true",
                 "tintColor": tint
@@ -618,7 +643,7 @@ class DepictionGenerator:
                 view.append(
                     {
                         "class": "DepictionMarkdownView",
-                        "markdown": "You can also contact the repo maintainer via the following" +
+                        "markdown": "您还可以通过以下方式联系回购维护人员" +
                         " sites:"
                     }
                 )
