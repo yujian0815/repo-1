@@ -29,7 +29,7 @@ class DebianPackager(object):
         release_file += "Label: " + repo_settings['name'] + "\n"
         release_file += "Suite: stable\n"
         release_file += "Version: ©2019\n"
-        release_file += "Codename: ios\n"
+        release_file += "Codename: IOS\n"
         release_file += "Architectures: iphoneos-arm\n"
         release_file += "Components: main\n"
         release_file += "Description: " + repo_settings['description'] + "\n"
@@ -296,7 +296,6 @@ class DebianPackager(object):
                              output['Support'] = deb.headers['Support']
                         except Exception:
                              output['Support'] = input("描述/支持/不支持 ")
-
                         try:
                             output['homepage'] = deb.headers['Homepage']
                         except Exception:

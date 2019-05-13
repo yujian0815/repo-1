@@ -12,7 +12,7 @@ from util.DepictionGenerator import DepictionGenerator
 from util.PackageLister import PackageLister
 from util.DebianPackager import DebianPackager
 
-version = "©2019"
+version = "1.0.0"
 
 
 def main():
@@ -176,8 +176,9 @@ def main():
         control_file = DebianPackager.CompileControl(tweak_data, repo_settings)
         PackageLister.CreateFile("temp/" + tweak_data['bundle_id'] + "/DEBIAN/control", control_file)
         DebianPackager.CreateDEB(tweak_data['bundle_id'], tweak_data['version'])
-        shutil.copy(root + "temp/" + tweak_data['bundle_id'] + ".deb", root + "docs/pkg/" + tweak_data['bundle_id']
+        shutil.copy(root + "temp/" + tweak_data['bundle_id'] + ".deb", root + "docs/pkg/" + tweak_data['bundle_id'] + tweak_data['version']
                     + ".deb")
+    
 
     ###########
     # Step 8: Generate Package file and hash/sign the Release file.

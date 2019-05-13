@@ -2,10 +2,10 @@ Origin: 1壹筒天下 🇨🇳
 Label: 1壹筒天下 🇨🇳
 Suite: stable
 Version: ©2019
-Codename: ios
+Codename: IOS
 Architectures: iphoneos-arm
 Components: main
 Description: 壹筒天下🇨🇳
 
 SHA256:
- efded468aa8331d2ef141e30bf89305d6d2623c735c52e37460e783deb6f2c76 662 Packages.bz2
+ 634a1233b0d78880d0bc2893fe1444e627498777e9562255f3291e6b0a5e14fe 609 Packages.bz2

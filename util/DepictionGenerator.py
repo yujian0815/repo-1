@@ -138,10 +138,6 @@ class DepictionGenerator:
                         },
                         {
                               "class": "DepictionHeaderView",
-                              "title": "更新日期",
-                              },
-                        {
-                              "class": "DepictionHeaderView",
                               "title": "更新日志"
                         },
                         {
@@ -178,13 +174,33 @@ class DepictionGenerator:
                             "text": tweak_data['size'] + " KB "
                         },
                         {
+                              "class": "DepictionTableTextView",
+                              "title": "更新时间",
+                              "text": datetime.datetime.now().strftime("%Y年%m月%d日%H:%M"),
+                        },
+                        {
                             "class": "DepictionSpacerView"
                         },
                         {
+                              "class": "DepictionTableButtonView",
+                              "title": "更多帮助",
+                              "action": "depiction-https://" + repo_settings['cname'] + subfolder +
+                              "/depiction/native/help/" + tweak_data['bundle_id'] + ".json",
+                              "openExternal": "true",
+                              "tintColor": tint
+                        },
+                        {
+                              "class": "DepictionTableButtonView",
+                              "title": "捐赠支持",
+                              "action": "depiction-https://" + repo_settings['cname'] + subfolder +
+                              "/depiction/native/help/" + tweak_data['bundle_id'] + ".json",
+                              "openExternal": "true",
+                              "tintColor": tint
+                        },
+                        {
                             "class": "DepictionTableButtonView",
-                            "title": "获取我的",
-                            "action": "depiction-https://" + repo_settings['cname'] + subfolder +
-                                      "/depiction/native/help/" + tweak_data['bundle_id'] + ".json",
+                            "title": "加入的我QQ群(付费8.8)",
+                            "action": "depiction-https://qm.qq.com/cgi-bin/qm/qr?k=3E6NIMRxJuoAGun5DH6XLWoQ8cm5T4TW/",
                             "openExternal": "true",
                             "tintColor": tint
                         },
@@ -253,6 +269,14 @@ class DepictionGenerator:
             return changelog
         except Exception:
             return [
+                {
+                "class": "DepictionHeaderView",
+                "title": "历史变更"
+                },
+                {
+                "class": "DepictionMarkdownView",
+                "markdown": "暂无历史变更.",
+                },
                 {   
                     "class": "DepictionLabelView",
                     "text": DepictionGenerator.RenderFooter(self),
@@ -310,7 +334,7 @@ class DepictionGenerator:
         try:
             footer = pystache.render(repo_settings['footer'], data)
         except Exception:
-            footer = pystache.render("他是个疯子 {{silica_version}} – 更新日期 {{silica_compile_date}}", data)
+            footer = pystache.render("他是个疯子 {{silica_version}}", data)
         return footer
 
     def RenderDataBasic(self):
