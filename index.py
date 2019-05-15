@@ -77,17 +77,17 @@ def main():
                             root + "docs/assets/" + package_bundle_id + "/icon.png")
 
         try:
-            shutil.copy(root + "Packages/" + package_name + "/silica_data/1.png",
-                        root + "docs/assets/" + package_bundle_id + "/1.png")
+            shutil.copy(root + "Packages/" + package_name + "/silica_data/banner.png",
+                        root + "docs/assets/" + package_bundle_id + "/banner.png")
         except Exception:
             category = PackageLister.ResolveCategory(tweak_release, package_bundle_id)
             category = re.sub(r'\([^)]*\)', '', category).strip()
             try:
                 shutil.copy(root + "Styles/Generic/Banner/" + category + ".png",
-                            root + "docs/assets/" + package_bundle_id + "/1.png")
+                            root + "docs/assets/" + package_bundle_id + "/banner.png")
             except Exception:
                 shutil.copy(root + "Styles/Generic/Banner/Generic.png",
-                            root + "docs/assets/" + package_bundle_id + "/1.png")
+                            root + "docs/assets/" + package_bundle_id + "/banner.png")
 
         try:
             shutil.copy(root + "Packages/" + package_name + "/silica_data/description.md",

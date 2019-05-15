@@ -116,19 +116,19 @@ class DepictionGenerator:
 
         depiction = {
             "minVersion": "0.1",
-            "headerImage": "https://" + repo_settings['cname'] + subfolder + "/assets/" + tweak_data['bundle_id'] + "/1.png",
+            "headerImage": "https://" + repo_settings['cname'] + subfolder + "/assets/" + tweak_data['bundle_id'] + "/banner.png",
             "tintColor": tint,
             "tabs": [
                 {
                      "tabname": "插件描述",
                      "views": [
                                {
-                               "markdown":"\n插件说明:\n \n \n \n " ,
+                               "markdown":"\n插件说明:\n \n " ,
                                "useSpacing": "true",
                                "class": "DepictionMarkdownView"
                                },
                                {
-                               "markdown":"<center>" + "A12插件兼容说明移步底下\n " + md_txt + "</center>",
+                               "markdown":"<center>" + "A12插件兼容说明移步底下\n \n \n  " + "  \n  \n  " + md_txt + "</center>",
                                "useSpacing": "true",
                                "class": "DepictionMarkdownView"
                                },
@@ -474,7 +474,7 @@ class DepictionGenerator:
                     ar_el = {
                         "package": package['bundle_id'],
                         "title": package['name'],
-                        "url": "https://" + repo_settings['cname'] + subfolder + "/assets/" + package['bundle_id'] + "/1.png",
+                        "url": "https://" + repo_settings['cname'] + subfolder + "/assets/" + package['bundle_id'] + "/banner.png",
                         "hideShadow": "true"
 
                     }
@@ -487,7 +487,7 @@ class DepictionGenerator:
             ar_el = {
                 "package": featured_package['bundle_id'],
                 "title": featured_package['name'],
-                "url": "https://" + repo_settings['cname'] + subfolder + "/assets/" + featured_package['bundle_id'] + "/1.png",
+                "url": "https://" + repo_settings['cname'] + subfolder + "/assets/" + featured_package['bundle_id'] + "/banner.png",
                 "hideShadow": "true"
 
             }
@@ -533,7 +533,7 @@ class DepictionGenerator:
             featured_int = random.randint(0,(len(tweak_release)-1))
             featured_package = tweak_release[featured_int]
             list_el += DepictionGenerator.CarouselEntry(self, featured_package['name'],
-                                                        "assets/" + featured_package['bundle_id'] + "/1.png",
+                                                        "assets/" + featured_package['bundle_id'] + "/banner.png",
                                                         featured_package['bundle_id'])
         return list_el
 
