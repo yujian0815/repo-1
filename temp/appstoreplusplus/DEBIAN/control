@@ -1,0 +1,17 @@
+Architecture: iphoneos-arm
+Package: appstoreplusplus
+Name: AppStore++「应用降级」
+Version: 0.9-6
+Depiction: https://sileo-cydia.github.io/depiction/web/appstoreplusplus.html
+Homepage: https://sileo-cydia.github.io/depiction/web/appstoreplusplus.html
+SileoDepiction: https://sileo-cydia.github.io/depiction/native/appstoreplusplus.json
+ModernDepiction: https://sileo-cydia.github.io/depiction/native/appstoreplusplus.json
+Icon: https://sileo-cydia.github.io/assets/appstoreplusplus/icon.png
+Maintainer: 他是个疯子 <409774743@qq.com>
+Description: 降级appstore的软件
+Support: 支持
+Installed-Size: 6052
+Section: Tweaks
+Depends: firmware (>= 11.0), mobilesubstrate
+Conflicts: com.unlimapps.uaupdatetools
+Author: CokePokes <409774743@qq.com>

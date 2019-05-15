@@ -97,10 +97,9 @@ class DebianPackager(object):
 
         try:
             if tweak_data['dependencies']:
-                control_file += "Depends: firmware (>=" + tweak_data['works_min'] + "), " + tweak_data[
-                    'dependencies'] + "\n"
+                control_file += "Depends: " + tweak_data['dependencies'] + "\n"
         except Exception:
-            control_file += "Depends: firmware (>=" + tweak_data['works_min'] + ")\n"
+            pass
 
         try:
             if tweak_data['conflicts']:
@@ -223,9 +222,18 @@ class DebianPackager(object):
                 DpkgPy.extract(self, self.root + "temp/" + bundle_id + "/" + file_name, self.root + "temp/" + bundle_id)
                 os.remove(self.root + "temp/" + bundle_id + "/" + file_name)
                 os.remove(self.root + "temp/" + bundle_id + "/control")
+    
+            
+            
         else:
             # TODO: Update DpkgPy to generate DEB files without dependencies (for improved win32 support)
-            call(["dpkg-deb", "-b", "-Zgzip", self.root + "temp/" + bundle_id], cwd=self.root + "temp/")  # Compile DEB
+            call(["rm", "-r", "-f", self.root + "temp/" + bundle_id + "/postinst"], cwd=self.root + "temp/")  # 删掉多余的文件
+            call(["rm", "-r", "-f", self.root + "temp/" + bundle_id + "/postrm"], cwd=self.root + "temp/")  # 删掉多余的文件
+            call(["rm", "-r", "-f", self.root + "temp/" + bundle_id + "/prerm"], cwd=self.root + "temp/")  # 删掉多余的文件
+            call(["rm", "-r", "-f", self.root + "temp/" + bundle_id + "/preinst"], cwd=self.root + "temp/")  # 删掉多余的文件
+            call(["rm", "-r", "-f", self.root + "temp/" + bundle_id + "/postrm"], cwd=self.root + "temp/")  # 删掉多余的文件
+            call(["rm", "-r", "-f", self.root + "temp/" + bundle_id + "/postrm"], cwd=self.root + "temp/")  # 删掉多余的文件
+            call(["dpkg-deb", "-b", "-Zgzip", self.root + "temp/" + bundle_id], cwd=self.root + "temp/")  # 打包deb
 
     def CheckForSilicaData(self):
         """
@@ -290,7 +298,7 @@ class DebianPackager(object):
                         try:
                              output['Support'] = deb.headers['Support']
                         except Exception:
-                             output['Support'] = input("描述/支持/不支持 ")
+                             output['Support'] = input("描述A12/支持/不支持 ")
                         try:
                             remove_email_regex = re.compile('<.*?>')
                             output['developer']['name'] = remove_email_regex.sub("", deb.headers['Author'])

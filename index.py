@@ -43,7 +43,7 @@ def main():
     PackageLister.CreateFolder("docs/depiction/web")
     PackageLister.CreateFolder("docs/depiction/native")
     PackageLister.CreateFolder("docs/depiction/native/help")
-    PackageLister.CreateFolder("docs/pkg")
+    PackageLister.CreateFolder("docs/debs")
     PackageLister.CreateFolder("docs/assets")
     PackageLister.CreateFolder("docs/api")
 
@@ -77,17 +77,17 @@ def main():
                             root + "docs/assets/" + package_bundle_id + "/icon.png")
 
         try:
-            shutil.copy(root + "Packages/" + package_name + "/silica_data/banner.png",
-                        root + "docs/assets/" + package_bundle_id + "/banner.png")
+            shutil.copy(root + "Packages/" + package_name + "/silica_data/1.png",
+                        root + "docs/assets/" + package_bundle_id + "/1.png")
         except Exception:
             category = PackageLister.ResolveCategory(tweak_release, package_bundle_id)
             category = re.sub(r'\([^)]*\)', '', category).strip()
             try:
                 shutil.copy(root + "Styles/Generic/Banner/" + category + ".png",
-                            root + "docs/assets/" + package_bundle_id + "/banner.png")
+                            root + "docs/assets/" + package_bundle_id + "/1.png")
             except Exception:
                 shutil.copy(root + "Styles/Generic/Banner/Generic.png",
-                            root + "docs/assets/" + package_bundle_id + "/banner.png")
+                            root + "docs/assets/" + package_bundle_id + "/1.png")
 
         try:
             shutil.copy(root + "Packages/" + package_name + "/silica_data/description.md",
@@ -176,7 +176,7 @@ def main():
         control_file = DebianPackager.CompileControl(tweak_data, repo_settings)
         PackageLister.CreateFile("temp/" + tweak_data['bundle_id'] + "/DEBIAN/control", control_file)
         DebianPackager.CreateDEB(tweak_data['bundle_id'], tweak_data['version'])
-        shutil.copy(root + "temp/" + tweak_data['bundle_id'] + ".deb", root + "docs/pkg/" + tweak_data['bundle_id'] + tweak_data['version']
+        shutil.copy(root + "temp/" + tweak_data['bundle_id'] + ".deb", root + "docs/debs/" + tweak_data['bundle_id'] + tweak_data['version']
                     + ".deb")
     
 

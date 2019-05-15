@@ -116,7 +116,7 @@ class DepictionGenerator:
 
         depiction = {
             "minVersion": "0.1",
-            "headerImage": "https://" + repo_settings['cname'] + subfolder + "/assets/" + tweak_data['bundle_id'] + "/banner.png",
+            "headerImage": "https://" + repo_settings['cname'] + subfolder + "/assets/" + tweak_data['bundle_id'] + "/1.png",
             "tintColor": tint,
             "tabs": [
                 {
@@ -474,7 +474,7 @@ class DepictionGenerator:
                     ar_el = {
                         "package": package['bundle_id'],
                         "title": package['name'],
-                        "url": "https://" + repo_settings['cname'] + subfolder + "/assets/" + package['bundle_id'] + "/banner.png",
+                        "url": "https://" + repo_settings['cname'] + subfolder + "/assets/" + package['bundle_id'] + "/1.png",
                         "hideShadow": "true"
 
                     }
@@ -487,7 +487,7 @@ class DepictionGenerator:
             ar_el = {
                 "package": featured_package['bundle_id'],
                 "title": featured_package['name'],
-                "url": "https://" + repo_settings['cname'] + subfolder + "/assets/" + featured_package['bundle_id'] + "/banner.png",
+                "url": "https://" + repo_settings['cname'] + subfolder + "/assets/" + featured_package['bundle_id'] + "/1.png",
                 "hideShadow": "true"
 
             }
@@ -525,7 +525,7 @@ class DepictionGenerator:
             try:
                 if package['featured'].lower() == "true":
                     list_el += DepictionGenerator.CarouselEntry(self, package['name'],
-                                                                "assets/" + package['bundle_id'] + "/banner.png",
+                                                                "assets/" + package['bundle_id'] + "/.png",
                                                                 package['bundle_id'])
             except Exception:
                 pass
@@ -533,7 +533,7 @@ class DepictionGenerator:
             featured_int = random.randint(0,(len(tweak_release)-1))
             featured_package = tweak_release[featured_int]
             list_el += DepictionGenerator.CarouselEntry(self, featured_package['name'],
-                                                        "assets/" + featured_package['bundle_id'] + "/banner.png",
+                                                        "assets/" + featured_package['bundle_id'] + "/1.png",
                                                         featured_package['bundle_id'])
         return list_el
 
