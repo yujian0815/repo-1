@@ -525,7 +525,7 @@ class DepictionGenerator:
             try:
                 if package['featured'].lower() == "true":
                     list_el += DepictionGenerator.CarouselEntry(self, package['name'],
-                                                                "assets/" + package['bundle_id'] + "/.png",
+                                                                "assets/" + package['bundle_id'] + "/banner.png",
                                                                 package['bundle_id'])
             except Exception:
                 pass

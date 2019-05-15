@@ -5,11 +5,34 @@ Maintainer: 他是个疯子 <409774743@qq.com>
 Installed-Size: 6052
 Depends: firmware (>= 11.0), mobilesubstrate
 Conflicts: com.unlimapps.uaupdatetools
+Filename: ./pkg/appstoreplusplus.deb
+Size: 1550022
+MD5sum: 9ef214584d3545d533653b737abe4d9f
+SHA1: 2a88cb5188f8f5b3f0669a25a168e38f2c8cfcc2
+SHA256: dacf46546471e36e7bc1cfeef07368ce9e37eec771018fa64dd90da745fd7bee
+Section: Tweaks
+Homepage: https://sileo-cydia.github.io/depiction/web/appstoreplusplus.html
+Description: 降级appstore的软件
+Author: CokePokes <409774743@qq.com>
+Depiction: https://sileo-cydia.github.io/depiction/web/appstoreplusplus.html
+Icon: https://sileo-cydia.github.io/assets/appstoreplusplus/icon.png
+Moderndepiction: https://sileo-cydia.github.io/depiction/native/appstoreplusplus.json
+Name: AppStore++「应用降级」
+Sileodepiction: https://sileo-cydia.github.io/depiction/native/appstoreplusplus.json
+Support: 支持
+
+Package: appstoreplusplus
+Version: 0.9-6
+Architecture: iphoneos-arm
+Maintainer: 他是个疯子 <409774743@qq.com>
+Installed-Size: 6052
+Depends: firmware (>= 11.0), mobilesubstrate
+Conflicts: com.unlimapps.uaupdatetools
 Filename: ./debs/appstoreplusplus0.9-6.deb
 Size: 1550024
-MD5sum: 41c9c5646c954544dbfc30e45523ce62
-SHA1: 944d422ad45e9d586a0a2d1c17450dcbc0ef348a
-SHA256: 0239f3ec2bdae7f76d05889d659367833fc62c42954504de44630de77ccea537
+MD5sum: 632b58f16333987bfde2e54992ec5576
+SHA1: c67d4bb1150ebc5c75fc6d68c372d3e187cec0e4
+SHA256: f422b2b26a52278c43de313a056c82d95c6450e7634807cf69006bd552115bd8
 Section: Tweaks
 Homepage: https://sileo-cydia.github.io/depiction/web/appstoreplusplus.html
 Description: 降级appstore的软件
