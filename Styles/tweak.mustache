@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, user-scalable=0">
+    <title>{{tweak_name}}</title>
+    <link rel="stylesheet" type="text/css" href="../../web/index.css">
+    <style>a, .tint, .table-btn:after {color: {{tint_color}}} .active {color: {{tint_color}};border-bottom: 2px solid {{tint_color}};}</style>
+    <script src="../../web/index.js"></script>
+    <meta name="description" content="A package by {{tweak_developer}} for {{tweak_compatibility}}.">
+    <meta property="og:title" content="{{tweak_name}}">
+    <meta property="og:description" content="A package by {{tweak_developer}} for {{tweak_compatibility}}.">
+    <meta property="og:image" content="../../assets/{{tweak_bundle_id}}/banner.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{tweak_name}}">
+    <meta name="twitter:description" content="A package by {{tweak_developer}} for {{tweak_compatibility}}.">
+    <meta name="twitter:image" content="https://{{repo_url}}/assets/{{tweak_bundle_id}}/banner.png">
+    <meta name="theme-color" content="{{tint_color}}">
+</head>
+<body>
+    <div class="body">
+        <div style="background-image: url(../../assets/{{tweak_bundle_id}}/banner.png)" class="banner_underlay"></div>
+        <div class="package package_head">
+            <img src="../../assets/{{tweak_bundle_id}}/icon.png">
+            <div class="package_info">
+                <h1 class="package_name">{{tweak_name}}</h1>
+                <p class="package_caption">{{tweak_developer}}</p>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="nav_btn active tweak_info_btn" onclick="swap('.changelog','.tweak_info');">插件描述</div>
+            <div class="nav_btn changelog_btn" onclick="swap('.tweak_info','.changelog');">关于我们</div>
+        </div>
+        <div class="tweak_info">
+            <center style='color:#FF0000;font-size:18px;'><p class="compatibility"><b>兼容说明:</b>  不支持你的系统,仅支持 {{tweak_compatibility}}.</p></center>
+                    <div class="md_view">
+                <h3>插件说明</h3>
+                    <center><p>{{{tweak_description}}}</p></center>
+                    </div>
+            <br />
+            <br />
+            <h3>插件截图</h3>
+            <center>{{{tweak_carousel}}}</center>
+            <h3>版本描述</h3>
+            <div class="table">
+                <div class="cell">
+                    <div class="title">开发作者</div>
+                    <div class="text">{{tweak_developer}}</div>
+                    <br><br>
+                </div>
+                <div class="cell">
+                    <div class="title">插件版本</div>
+                    <div class="text">{{tweak_version}}</div>
+                    <br><br>
+                </div>
+                <div class="cell">
+                    <div class="title">支持A12?</div>
+                    <div class="text">{{tweak_dataSupport}}</div>
+                    <br><br>
+                </div>
+                <div class="cell">
+                    <div class="title">支持系统</div>
+                    <div class="text">{{tweak_compatibility}}</div>
+                    <br><br>
+                </div>
+                <div class="cell">
+                    <div class="title">分类标示</div>
+                    <div class="text">{{tweak_section}}</div>
+                    <br><br>
+                </div>
+                <div class="cell">
+                    <div class="title">插件大小</div>
+                    <div class="text">{{tweak_datasize}}K</div>
+                    <br><br>
+                </div>
+                <div class="cell">
+                    <div class="title">更新日期</div>
+                    <div class="text">{{tweak_datetime}}</div>
+                    <br><br>
+                </div>
+            </div>
+            {{#source}}
+            <a href="{{source}}" class="table-btn">
+                <div>View Source Code</div>
+            </a>
+            {{/source}}
+        </div>
+        <div class="changelog">
+            {{{tweak_changelog}}}
+        </div>
+        <div class="caption center footer">{{tweak_datetime}}{{footer}}</div>
+        </div>
+            <br />
+            <br />
+            <ul>
+            <li>
+            <a href="https://qm.qq.com/cgi-bin/qm/qr?k=3E6NIMRxJuoAGun5DH6XLWoQ8cm5T4TW" target="_blank">
+            <img class="icon" src="qq.png"/>
+            <label>加入QQ群(解决各种越狱问题)</label></a>
+            </li>
+            </ul>
+            <br />
+            <ul>
+            <li>
+            <a href="https://sileo-cydia.github.io/" target="_blank">
+            <img class="icon" src="cy.png"/>
+            <label>我的主页(提供越狱.破解软件下载)</label></a>
+            </li>
+            </ul>
+            <br />
+            <ul>
+            <li>
+            <a href="https://sileo-cydia.github.io/" target="_blank">
+                    <img class="icon" src="cy.png"/>
+                    <label>捐赠我(谢谢大家支持)</label></a>
+            </li>
+            </ul>
+            </div>
+        </div>
+</body>
+<script>compatible("{{works_min}}","{{works_max}}","{{tweak_compatibility}}");externalize()</script>
+</html>
